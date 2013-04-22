@@ -62,7 +62,7 @@ def main():
     if args.action == 'render':
         render.process_slides(args.markdown, args.output, args.template)
     elif args.action == 'create':
-        create.create_project(args.name)
+        create.create_project(args.path)
     elif args.action == 'watch':
         # delay the import of watch until here, so that if they don't
         # have watchdog installed, the whole script won't choke
