@@ -28,6 +28,8 @@ DECK_SETTINGS_RE = {
     'subtitle': u'^%\s*subtitle:(.*)$',
     'author': u'^%\s*author:(.*)$',
     'contact': u'^%\s*contact:(.*)$',
+    'favicon': u'^%\s*favicon:(.*)$',
+
 }
 
 #############################################################################

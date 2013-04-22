@@ -6,6 +6,7 @@
 % thankyou_details: And especially these people:
 % contact: <span>www</span> <a href="http://www.google.edu/">website</a>
 % contact: <span>github</span> <a href="http://github.com">username</a>
+% favicon: http://www.stanford.edu/favicon.ico
 
 ---
 title: Intro slide
