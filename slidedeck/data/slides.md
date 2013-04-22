@@ -39,7 +39,8 @@ class: segue dark nobackground
 ---
 title: Maybe some code?
 
-press 'h' to highlight an important section
+press 'h' to highlight an important section (that is highlighted
+with &lt;b&gt;...&lt;/b&gt; tags)
 
 <pre class="prettyprint" data-lang="javascript">
 function isSmall() {

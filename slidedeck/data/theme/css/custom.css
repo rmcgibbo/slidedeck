@@ -33,3 +33,7 @@ slides footer.source {
     height: 30px;
     line-height: 1.9;
 }
+
+pre b {
+    font-weight: normal;
+}
