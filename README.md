@@ -18,9 +18,8 @@ We've made a few changes:
     - `slidedeck render` will render your deck from markdown to html5.
     - `slidedeck watch` will watch your project and rerender the slides whenever you change the
        content (useful for iterative development).
-
 - I made a few stylistic changes to the css, including changing the font size.
-- The slides can contain latex, which is rendered via mathjax.
+- The slides can contain LaTeX, which is rendered via mathjax.
 - There are no google logos all over the place
 
 
