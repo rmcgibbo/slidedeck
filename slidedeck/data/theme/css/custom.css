@@ -1,0 +1,35 @@
+slide.img-top-center img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+slide .center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto
+}
+
+em, i  {
+  font-style: italic;
+}
+
+strong {
+  font-weight: bold;
+}
+
+slides footer.source {
+ font-size: 16pt
+ position: absolute;
+    position: absolute;
+    bottom: 40px;
+    left: 20px;
+/*    background: url(../../images/google_developers_icon_128.png) no-repeat 0 50%;*/
+    -webkit-background-size: 30px 30px;
+    -moz-background-size: 30px 30px;
+    -o-background-size: 30px 30px;
+    background-size: 30px 30px;
+    padding-left: 40px;
+    height: 30px;
+    line-height: 1.9;
+}

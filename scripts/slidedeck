@@ -1,0 +1,55 @@
+#!/usr/bin/env python
+
+#############################################################################
+# Imports
+#############################################################################
+
+import argparse
+from slidedeck import render, create
+
+#############################################################################
+# Functions
+#############################################################################
+
+def main():
+    parser = argparse.ArgumentParser(description="slidedeck is a tool for...")
+    subparsers = parser.add_subparsers(title='actions', dest='action')
+
+    parser_render = subparsers.add_parser("render", help="""Render the HTML5 slide
+        deck from a markdown source file""")
+    parser_render.add_argument('-i', '--markdown', help='''The markdown source file.
+        Default="slides.md"''', default='slides.md')
+    parser_render.add_argument('-o', '--output', help='''The outut HTML file.
+        Default="index.html"''', default='index.html')
+    parser_render.add_argument('-t', '--template', help='''The template filename
+        Default="base.html"''', default='base.html')
+
+    parser_create = subparsers.add_parser("create", help="""Create a new slidedeck
+        project""")
+    parser_create.add_argument('-n', '--name', help='''Name of the project.
+        to create''', required=True)
+    
+    parser_watch = subparsers.add_parser("watch", help="""Run a small process
+        that watches the slides markdown file for changes and rebuilds the HTML
+        whenever the slides are modified.""")
+    parser_watch.add_argument('-i', '--markdown', help='''The markdown source file.
+        Default="slides.md"''', default='slides.md')
+    parser_watch.add_argument('-o', '--output', help='''The outut HTML file.
+        Default="index.html"''', default='index.html')
+    parser_watch.add_argument('-t', '--template', help='''The template filename
+        Default="base.html"''', default='base.html')
+
+    args = parser.parse_args()
+    
+    if args.action == 'render':
+        render.process_slides(args.markdown, args.output, args.template)
+    elif args.action == 'create':
+        create.create_project(args.name)
+    elif args.action == 'watch':
+        from slidedeck import watch
+        watch.watch_project(args.markdown, args.output, args.template)
+    else:
+        raise RuntimeError()
+
+if __name__ == '__main__':
+    main()
