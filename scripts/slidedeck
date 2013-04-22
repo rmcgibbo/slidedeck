@@ -4,6 +4,7 @@
 # Imports
 #############################################################################
 
+import sys
 import argparse
 from slidedeck import render, create
 
@@ -12,11 +13,24 @@ from slidedeck import render, create
 #############################################################################
 
 def main():
-    parser = argparse.ArgumentParser(description="slidedeck is a tool for...")
-    subparsers = parser.add_subparsers(title='actions', dest='action')
+    parser = argparse.ArgumentParser(description="""
+    slidedeck is a tool for creating HTML5 slideshows in markdown, based on
+    the google io 2012 slidedeck. To get started and create your own slideshow,
+    use the `create` command.""")
+    subparsers = parser.add_subparsers(title='command', dest='action')
 
-    parser_render = subparsers.add_parser("render", help="""Render the HTML5 slide
-        deck from a markdown source file""")
+    parser_create_help='''Render a slideshow
+        by translating the the markdown source into HTML5.'''
+    parser_create = subparsers.add_parser("create", help=parser_create_help,
+        description=parser_create_help)
+    parser_create.add_argument('path', help='''Name of the slideshow
+        to create. This will create a new directory at this path, and
+        populate it with the necessary files for a skeleton slideshow.''')
+
+    parser_render_help = """Render a slideshow by translating the the markdown
+        source into HTML5."""
+    parser_render = subparsers.add_parser("render", help=parser_render_help,
+        description=parser_render_help)
     parser_render.add_argument('-i', '--markdown', help='''The markdown source file.
         Default="slides.md"''', default='slides.md')
     parser_render.add_argument('-o', '--output', help='''The outut HTML file.
@@ -24,14 +38,12 @@ def main():
     parser_render.add_argument('-t', '--template', help='''The template filename
         Default="base.html"''', default='base.html')
 
-    parser_create = subparsers.add_parser("create", help="""Create a new slidedeck
-        project""")
-    parser_create.add_argument('-n', '--name', help='''Name of the project.
-        to create''', required=True)
-    
-    parser_watch = subparsers.add_parser("watch", help="""Run a small process
-        that watches the slides markdown file for changes and rebuilds the HTML
-        whenever the slides are modified.""")
+
+    parser_watch_help = """Run a small process that watches the slides' 
+        markdown file for changes and rerenders the presentation to HTML
+        whenever the slides are modified."""
+    parser_watch = subparsers.add_parser("watch", help=parser_watch_help,
+        description=parser_watch_help)
     parser_watch.add_argument('-i', '--markdown', help='''The markdown source file.
         Default="slides.md"''', default='slides.md')
     parser_watch.add_argument('-o', '--output', help='''The outut HTML file.
@@ -39,17 +51,25 @@ def main():
     parser_watch.add_argument('-t', '--template', help='''The template filename
         Default="base.html"''', default='base.html')
 
+    if len(sys.argv) == 1:
+        # if nothing is specfied on the command line, print the help
+        # text to try to be useful.
+        parser.parse_args(['-h'])
+        sys.exit(1)
+
     args = parser.parse_args()
-    
+
     if args.action == 'render':
         render.process_slides(args.markdown, args.output, args.template)
     elif args.action == 'create':
         create.create_project(args.name)
     elif args.action == 'watch':
+        # delay the import of watch until here, so that if they don't
+        # have watchdog installed, the whole script won't choke
         from slidedeck import watch
         watch.watch_project(args.markdown, args.output, args.template)
     else:
-        raise RuntimeError()
+        raise RuntimeError('This should never have happened')
 
 if __name__ == '__main__':
     main()
