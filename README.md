@@ -28,16 +28,34 @@ We've made a few changes:
 
 Getting started
 ===============
-- Install the package with `python setup.py install`. This will add the command
-  line program `slidedeck` to your PATH.
-- Create a new project, complete with some template slides, the css, and the
-  javascript with `slidedeck create my_slides`.
-- Look in there for the `slides.md` file, and edit it to your liking.
-- Compile the slides from markdown into html with `slidedeck render`
-- If you'd like to autocompile your markdown any time the files change on disk, try
-  using the command `slidedeck watch`.
-- If you're curious about how any of these commands work, pass the `-h` flag to the
-  command line executable, like `slidedeck -h` or `slidedeck create -h`
+Install the package. This will add the command line program `slidedeck` to your PATH.
+```
+python setup.py install
+```
+
+Create a new project, complete with some template slides, the css, and the javascript.
+```
+slidedeck create my_slides
+```
+
+Look in there for the `slides.md` file, and edit it to your liking. When you want to see
+your work, compile the slides from markdown into HTML.
+```
+slidedeck render
+```
+
+You can also have the HTML *auto-compiled* from markdown, any time the files change on disk.
+```
+slidedeck watch
+```
+
+If you're curious about how any of these commands work, pass the `-h` flag to the command
+line executable,
+
+```
+slidedeck -h
+slidedeck create -h
+```
   
 Dependencies
 ============
