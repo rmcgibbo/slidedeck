@@ -1,7 +1,7 @@
 Slidedeck: HTML5 Slideshows in markdown
 ---------------------------------------
 
-### [Take a look at these classy slides!](http://htmlpreview.github.io/?https://github.com/rmcgibbo/slidedeck-example/blob/master/index.html)
+### [Take a look at these slides!](http://htmlpreview.github.io/?https://github.com/rmcgibbo/slidedeck-example/blob/master/index.html)
 
 
 Overview
