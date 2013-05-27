@@ -659,7 +659,7 @@ SlideDeck.prototype.loadTheme_ = function(theme) {
 // Polyfill missing APIs (if we need to), then create the slide deck.
 // iOS < 5 needs classList, dataset, and window.matchMedia. Modernizr contains
 // the last one.
-(function() {
+var initSlideDeck = function() {
   Modernizr.load({
     test: !!document.body.classList && !!document.body.dataset,
     nope: ['js/polyfills/classList.min.js', 'js/polyfills/dataset.min.js'],
@@ -667,4 +667,11 @@ SlideDeck.prototype.loadTheme_ = function(theme) {
       window.slidedeck = new SlideDeck();
     }
   });
-})();
+}
+// make sure that the slidedeck only gets created when the document is
+// ready.
+if (document.readyState === "complete") {
+  initSlideDeck();
+} else {
+  window.addEventListener("load", initSlideDeck);
+}
