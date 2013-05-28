@@ -17,7 +17,7 @@ except:
     sys.exit(1)
 
 
-def watch_project(markdown_fn, output_fn, template_fn):
+def watch_project(markdown_fn, output_fn, template_fn, render_first=True):
     class Handler(FileSystemEventHandler):
         def on_any_event(self, event):
             if event.src_path == os.path.abspath(output_fn):
@@ -25,6 +25,9 @@ def watch_project(markdown_fn, output_fn, template_fn):
             print 'Rendering slides...'
             process_slides(markdown_fn, output_fn, template_fn)
 
+    if render_first == True:
+        process_slides(markdown_fn, output_fn, template_fn)
+        
     observer = Observer()
     event_handler = Handler()
 
