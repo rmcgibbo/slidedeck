@@ -4,6 +4,8 @@ This is a repackaging of the google io 2012 slidedeck,
 to be a little easier to use and more suitable for scientific
 presentations.
 
+Example slides: http://htmlpreview.github.io/?https://github.com/rmcgibbo/slidedeck-example/blob/master/index.html
+
 You edit and author your entire presentation in markdown. All the metadata
 about your presentation is set within the markdown file, including things
 like the title and author. You run `slidedeck create` to make a new deck.
