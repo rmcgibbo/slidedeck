@@ -26,9 +26,7 @@ Development Status :: 3 - Alpha
 Intended Audience :: Science/Research
 License :: Public Domain
 Programming Language :: Python
-Operating System :: Unix
-Operating System :: MacOS
-Operating System :: Microsoft :: Windows
+Operating System :: OS Independent
 Topic :: Internet :: WWW/HTTP
 """
 
