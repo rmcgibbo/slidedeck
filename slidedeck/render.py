@@ -71,7 +71,7 @@ def process(markdown_fn, template_fn):
     return template.render(locals())
 
 
-def write_slides(slidestring)
+def write_slides(slidestring):
     with codecs.open(output_fn, 'w', encoding='utf8') as outfile:
         outfile.write(slidestring)
 
