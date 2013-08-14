@@ -37,39 +37,47 @@ DECK_SETTINGS_RE = {
 #############################################################################
 
 
+def render_slides(md, template_fn):
+    
+    md, settings = parse_deck_settings(md)
+    md_slides = md.split('\n---\n')
+    print("Compiled {:d} slides.".format(len(md_slides)))
+
+    slides = []
+    # Process each slide separately.
+    for md_slide in md_slides:
+        slide = {}
+        sections = md_slide.split('\n\n')
+        # Extract metadata at the beginning of the slide (look for key: value)
+        # pairs.
+        metadata_section = sections[0]
+        metadata = parse_metadata(metadata_section)
+        slide.update(metadata)
+        remainder_index = metadata and 1 or 0
+        # Get the content from the rest of the slide.
+        content_section = '\n\n'.join(sections[remainder_index:])
+        html = markdown.markdown(content_section)
+        slide['content'] = postprocess_html(html, metadata)
+
+        slides.append(slide)
+
+    template = jinja2.Template(open(template_fn).read())
+    return template.render(locals())
+
+
+def write_slides(slidestring):
+    with codecs.open(output_fn, 'w', encoding='utf8') as outfile:
+        outfile.write(slidestring)
+
+
 def process_slides(markdown_fn, output_fn, template_fn):
     if not os.path.exists(markdown_fn):
         raise OSError('The markdown file "%s" could not be found.' % markdown_fn)
-
-    with codecs.open(output_fn, 'w', encoding='utf8') as outfile:
-        md = codecs.open(markdown_fn, encoding='utf8').read()
-
-        md, settings = parse_deck_settings(md)
-
-        md_slides = md.split('\n---\n')
-        print 'Compiled %s slides.' % len(md_slides)
-
-        slides = []
-        # Process each slide separately.
-        for md_slide in md_slides:
-            slide = {}
-            sections = md_slide.split('\n\n')
-            # Extract metadata at the beginning of the slide (look for key: value)
-            # pairs.
-            metadata_section = sections[0]
-            metadata = parse_metadata(metadata_section)
-            slide.update(metadata)
-            remainder_index = metadata and 1 or 0
-            # Get the content from the rest of the slide.
-            content_section = '\n\n'.join(sections[remainder_index:])
-            html = markdown.markdown(content_section)
-            slide['content'] = postprocess_html(html, metadata)
-
-            slides.append(slide)
-
-        template = jinja2.Template(open(template_fn).read())
-
-        outfile.write(template.render(locals()))
+    md = codecs.open(markdown_fn, encoding='utf8').read()
+    
+    slides = process(md, template_fn)
+    write_slides(slides)
+    
 
 
 def parse_deck_settings(md):
@@ -92,7 +100,7 @@ def parse_deck_settings(md):
         from the document.
     """
     settings = defaultdict(lambda: [])
-    for key, value in DECK_SETTINGS_RE.iteritems():
+    for key, value in DECK_SETTINGS_RE.items():
         found = True
         while found:
             m = re.search(value, md, re.MULTILINE)
@@ -104,9 +112,9 @@ def parse_deck_settings(md):
 
     # if a setting is repeated, we join them together with a <br/> tag
     # in between.
-    settings = {k: '<br/>'.join(v) for k, v in settings.iteritems()}
+    settings = {k: '<br/>'.join(v) for k, v in settings.items()}
 
-    print 'Parsed slide deck settings, and found setting for: %s.' % ', '.join(settings.keys())
+    print("Parsed slide deck settings, and found setting for: {:s}.".format(', '.join(settings.keys())))
     # strip off the newline characters at the beginning and end of the document
     # that might have been left
     md = md.strip()
