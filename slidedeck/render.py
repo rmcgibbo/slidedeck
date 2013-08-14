@@ -37,7 +37,7 @@ DECK_SETTINGS_RE = {
 #############################################################################
 
 
-def process(markdown_fn, template_fn):
+def render_slides(markdown_fn, template_fn):
     if not os.path.exists(markdown_fn):
         raise OSError('The markdown file "%s" could not be found.' % markdown_fn)
 
