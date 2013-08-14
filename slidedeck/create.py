@@ -17,7 +17,7 @@ def create_project(directory):
     def callback(src, names):
         base = os.path.relpath(src, data_dir)
         for name in names:
-            print '\033[92mcreate\033[0m  %s' % os.path.join(directory, base, name)
+            print("\033[92mcreate\033[0m  {:s}".format(os.path.join(directory, base, name)))
         return []
 
 
