@@ -37,9 +37,9 @@ DECK_SETTINGS_RE = {
 #############################################################################
 
 
-def render_slides(markdown, template_fn):
+def render_slides(md, template_fn):
     
-    md, settings = parse_deck_settings(markdown)
+    md, settings = parse_deck_settings(md)
     md_slides = md.split('\n---\n')
     print("Compiled {:d} slides.".format(len(md_slides)))
 
