@@ -47,7 +47,7 @@ def process_slides(markdown_fn, output_fn, template_fn):
         md, settings = parse_deck_settings(md)
 
         md_slides = md.split('\n---\n')
-        print 'Compiled %s slides.' % len(md_slides)
+        print("Compiled {:d} slides.".format(len(md_slides)))
 
         slides = []
         # Process each slide separately.
@@ -92,7 +92,7 @@ def parse_deck_settings(md):
         from the document.
     """
     settings = defaultdict(lambda: [])
-    for key, value in DECK_SETTINGS_RE.iteritems():
+    for key, value in DECK_SETTINGS_RE.items():
         found = True
         while found:
             m = re.search(value, md, re.MULTILINE)
@@ -104,9 +104,9 @@ def parse_deck_settings(md):
 
     # if a setting is repeated, we join them together with a <br/> tag
     # in between.
-    settings = {k: '<br/>'.join(v) for k, v in settings.iteritems()}
+    settings = {k: '<br/>'.join(v) for k, v in settings.items()}
 
-    print 'Parsed slide deck settings, and found setting for: %s.' % ', '.join(settings.keys())
+    print("Parsed slide deck settings, and found setting for: {:s}.".format(', '.join(settings.keys())))
     # strip off the newline characters at the beginning and end of the document
     # that might have been left
     md = md.strip()
