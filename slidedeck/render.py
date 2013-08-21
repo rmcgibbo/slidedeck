@@ -38,7 +38,7 @@ DECK_SETTINGS_RE = {
 
 
 def render_slides(md, template_fn):
-    
+
     md, settings = parse_deck_settings(md)
     md_slides = md.split('\n---\n')
     print("Compiled {:d} slides.".format(len(md_slides)))
@@ -65,7 +65,7 @@ def render_slides(md, template_fn):
     return template.render(locals())
 
 
-def write_slides(slidestring):
+def write_slides(slidestring, output_fn):
     with codecs.open(output_fn, 'w', encoding='utf8') as outfile:
         outfile.write(slidestring)
 
@@ -74,10 +74,10 @@ def process_slides(markdown_fn, output_fn, template_fn):
     if not os.path.exists(markdown_fn):
         raise OSError('The markdown file "%s" could not be found.' % markdown_fn)
     md = codecs.open(markdown_fn, encoding='utf8').read()
-    
-    slides = process(md, template_fn)
-    write_slides(slides)
-    
+
+    slides = render_slides(md, template_fn)
+    write_slides(slides, output_fn)
+
 
 
 def parse_deck_settings(md):
