@@ -48,4 +48,5 @@ setup(
                     'data/js/*.js', 'data/js/*/*.js', 'data/theme/*/*',
                     'data/figures/*']},
     zip_safe=False,
+    install_requires=['jinja2', 'markdown'],
 )
