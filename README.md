@@ -1,5 +1,7 @@
 Slidedeck: HTML5 Slideshows in markdown
 ---------------------------------------
+[![PyPI Version](https://badge.fury.io/py/slidedeck.png)](https://pypi.python.org/pypi/slidedeck)
+[![Downloads](https://pypip.in/d/slidedeck/badge.png)](https://pypi.python.org/pypi/slidedeck)
 
 ### [Take a look at these slides!](http://htmlpreview.github.io/?https://github.com/rmcgibbo/slidedeck-example/blob/master/index.html)
 
