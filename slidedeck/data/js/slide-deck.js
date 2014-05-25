@@ -615,6 +615,7 @@ SlideDeck.prototype.makeBuildLists_ = function () {
  * @param {boolean} dontPush
  */
 SlideDeck.prototype.updateHash_ = function(dontPush) {
+  dontPush = false;
   if (!dontPush) {
     var slideNo = this.curSlide_ + 1;
     var hash = '#' + slideNo;

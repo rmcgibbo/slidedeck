@@ -106,7 +106,7 @@ def parse_deck_settings(md):
             m = re.search(value, md, re.MULTILINE)
             if m:
                 settings[key].append(m.group(1))
-                md = re.sub(m.group(0), '', md, re.MULTILINE)
+                md = md.replace(m.group(0), '')
             else:
                 found = False
 
