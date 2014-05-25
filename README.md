@@ -58,6 +58,13 @@ line executable,
 slidedeck -h
 slidedeck create -h
 ```
+
+Tricks
+======
+
+`slidedeck watch` works nicely with the [tincr](http://tin.cr/) extension for
+chrome, which will refresh your browser every time the html files its serving
+are changed on disk.
   
 Dependencies
 ============
