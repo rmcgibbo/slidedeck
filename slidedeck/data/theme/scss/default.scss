@@ -1,4 +1,3 @@
-@charset "UTF-8";
 @import "base";
 @import "compass/css3/columns";
 @import "compass/css3/user-interface";
@@ -843,10 +842,6 @@ article.smaller {
 .segue {
   padding: $slide-left-right-padding $slide-left-right-padding * 2;
 
-  h1 {
-      font-size: 80px;
-      color: $gray-1;
-  }
   h2 {
     color: $gray-1;
     font-size: 60px;
