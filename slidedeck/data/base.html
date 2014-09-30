@@ -26,7 +26,8 @@ URL: https://code.google.com/p/io-2012-slides
   <link rel="stylesheet" media="all" href="theme/css/custom.css">
   <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
   <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
-  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+  <script data-main="js/slides", src="http://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.14/require.min.js"></script>
+
 
   <!-- MathJax support  -->
   <script type="text/x-mathjax-config">
@@ -39,10 +40,20 @@ URL: https://code.google.com/p/io-2012-slides
       displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
       processEscapes: true
     },
+    TeX: {
+      extensions: ["color.js"]
+    },
     "HTML-CSS": { availableFonts: ["TeX"] }
   });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div style="display:hidden">
+  \[
+    \definecolor{data}{RGB}{18,110,213}
+    \definecolor{unknown}{RGB}{217,86,16}
+    \definecolor{learned}{RGB}{175,114,176}
+  \]
+  </div>
 
 </head>
 
