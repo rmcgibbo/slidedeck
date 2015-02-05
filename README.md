@@ -3,7 +3,7 @@ Slidedeck: HTML5 Slideshows in markdown
 [![PyPI Version](https://badge.fury.io/py/slidedeck.png)](https://pypi.python.org/pypi/slidedeck)
 [![Downloads](https://pypip.in/d/slidedeck/badge.png)](https://pypi.python.org/pypi/slidedeck)
 
-### [Take a look at these slides!](http://cdn.rawgit.com/rmcgibbo/slidedeck-example/master/index.html)
+### [Take a look at these slides!](http://rawgit.com/rmcgibbo/slidedeck-example/master/index.html)
 
 
 Overview
