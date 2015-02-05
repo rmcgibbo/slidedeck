@@ -2,9 +2,9 @@ requirejs.config({
     baseUrl: "js/",
     paths: {
 	modernizer: "modernizr.custom.45394",
-	prettify: "http://cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min",
-	underscore: "http://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min",
-	hammer: "http://cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.min"
+	prettify: "//cdnjs.cloudflare.com/ajax/libs/prettify/r298/prettify.min",
+	underscore: "//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.7.0/underscore-min",
+	hammer: "//cdnjs.cloudflare.com/ajax/libs/hammer.js/0.6.4/hammer.min"
     },
     shim:  {
 	'slide-deck' : {
