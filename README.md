@@ -3,7 +3,7 @@ Slidedeck: HTML5 Slideshows in markdown
 [![PyPI Version](https://badge.fury.io/py/slidedeck.png)](https://pypi.python.org/pypi/slidedeck)
 [![Downloads](https://pypip.in/d/slidedeck/badge.png)](https://pypi.python.org/pypi/slidedeck)
 
-### [Take a look at these slides!](http://htmlpreview.github.io/?https://github.com/rmcgibbo/slidedeck-example/blob/master/index.html)
+### [Take a look at these slides!](http://cdn.rawgit.com/rmcgibbo/slidedeck-example/master/index.html)
 
 
 Overview
@@ -65,7 +65,7 @@ Tricks
 `slidedeck watch` works nicely with the [tincr](http://tin.cr/) extension for
 chrome, which will refresh your browser every time the html files its serving
 are changed on disk.
-  
+
 Dependencies
 ============
 
