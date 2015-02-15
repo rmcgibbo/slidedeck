@@ -9,7 +9,7 @@ Slidedeck: HTML5 Slideshows in markdown
 Overview
 ========
 
-This is a repackaging of the google io 2012 slidedeck, with [these](https://github.com/francescolaffi/elastic-google-io-slides) modifications, to be a little easier to use and more suitable for scientific presentations.
+This is a repackaging of the google io 2012 slidedeck, with [some](https://github.com/francescolaffi/elastic-google-io-slides) modifications, to be a little easier to use and more suitable for scientific presentations.
 
 We've made a few changes:
 
@@ -30,33 +30,34 @@ We've made a few changes:
 
 Getting started
 ===============
-Install the package. This will add the command line program `slidedeck` to your PATH.
+`slidedeck` can be installed with `pip`.
+
 ```
-python setup.py install
+$ pip install slidedeck
 ```
 
 Create a new project, complete with some template slides, the css, and the javascript.
 ```
-slidedeck create my_slides
+$ slidedeck create my_slides
 ```
 
 Look in there for the `slides.md` file, and edit it to your liking. When you want to see
 your work, compile the slides from markdown into HTML.
 ```
-slidedeck render
+$ slidedeck render
 ```
 
 You can also have the HTML *auto-compiled* from markdown, any time the files change on disk.
 ```
-slidedeck watch
+$ slidedeck watch
 ```
 
 If you're curious about how any of these commands work, pass the `-h` flag to the command
 line executable,
 
 ```
-slidedeck -h
-slidedeck create -h
+$ slidedeck -h
+$ slidedeck create -h
 ```
 
 Tricks
@@ -66,25 +67,6 @@ Tricks
 chrome, which will refresh your browser every time the html files its serving
 are changed on disk.
 
-Dependencies
-============
-
-You will need a modern python installation (tested on 2.7) with
-`jinja2` and `markdown` installed. To use the `slidedeck watch` command,
-you'll also need `watchdog` installed.
-
-You can get these packages with the `easy_install` or `pip` package managers
-by running
-
-```
-sudo easy_install jinja2 markdown watchdog
-```
-
-or
-
-```
-sudo pip install jinja2 markdown watchdog
-```
 
 License
 -------
