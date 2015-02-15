@@ -2,10 +2,11 @@
 # Imports
 #############################################################################
 
+from __future__ import absolute_import
 import sys
 import argparse
 import pkg_resources
-from slidedeck import render, create
+from .. import render, create
 
 __version__ = pkg_resources.get_distribution("slidedeck").version
 
