@@ -18,10 +18,7 @@ you change the content (useful for iterative development).
 
 DOCLINES = __doc__.split("\n")
 
-try:
-    from setuptools import setup
-except ImportError:
-    from distutils.core import setup
+from setuptools import setup, find_packages
 
 CLASSIFIERS = """\
 Development Status :: 3 - Alpha
@@ -34,19 +31,19 @@ Topic :: Internet :: WWW/HTTP
 
 setup(
     name='slidedeck',
-    version='0.11',
+    version='0.12',
     author='Robert McGibbon',
     author_email='rmcgibbo@gmail.com',
     url='https://github.com/rmcgibbo/slidedeck',
     description=DOCLINES[0],
     long_description="\n".join(DOCLINES[2:]),
     classifiers = CLASSIFIERS.splitlines(),
-    packages=['slidedeck'],
-    scripts=['scripts/slidedeck'],
+    packages=find_packages(),
+    entry_points={'console_scripts': ['slidedeck=slidedeck.scripts.slidedeck:main']},
     platforms = ["Linux", "Mac OS-X", "Unix"],
     package_data={'slidedeck': ['data/base.html', 'data/slides.md',
                     'data/js/*.js', 'data/js/*/*.js', 'data/theme/*/*',
                     'data/figures/*']},
     zip_safe=False,
-    install_requires=['jinja2', 'markdown'],
+    install_requires=['jinja2', 'markdown', 'watchdog'],
 )
