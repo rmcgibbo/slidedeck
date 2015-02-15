@@ -31,7 +31,7 @@ Topic :: Internet :: WWW/HTTP
 
 setup(
     name='slidedeck',
-    version='0.12',
+    version='0.13',
     author='Robert McGibbon',
     author_email='rmcgibbo@gmail.com',
     url='https://github.com/rmcgibbo/slidedeck',
