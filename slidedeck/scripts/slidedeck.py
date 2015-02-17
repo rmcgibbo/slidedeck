@@ -24,37 +24,35 @@ def main():
         action='version',
         version = 'slidedeck %s' % __version__)
 
-
     subs = p.add_subparsers(title='command', dest='action')
-
     create_help='''Render a slideshow by translating the the markdown source
         into HTML5.'''
-    create = subs.add_parser("create", help=create_help,
+    p_create = subs.add_parser("create", help=create_help,
         description=create_help)
-    create.add_argument('path', help='''Name of the slideshow
+    p_create.add_argument('path', help='''Name of the slideshow
         to create. This will create a new directory at this path, and
         populate it with the necessary files for a skeleton slideshow.''')
 
     render_help = """Render a slideshow by translating the the markdown
         source into HTML5."""
-    render = subs.add_parser("render", help=render_help, description=render_help)
-    render.add_argument('-i', '--markdown', help='''The markdown source file.
+    p_render = subs.add_parser("render", help=render_help, description=render_help)
+    p_render.add_argument('-i', '--markdown', help='''The markdown source file.
         Default="slides.md"''', default='slides.md')
-    render.add_argument('-o', '--output', help='''The outut HTML file.
+    p_render.add_argument('-o', '--output', help='''The outut HTML file.
         Default="index.html"''', default='index.html')
-    render.add_argument('-t', '--template', help='''The template filename
+    p_render.add_argument('-t', '--template', help='''The template filename
         Default="base.html"''', default='base.html')
 
 
     watch_help = """Run a small process that watches the slides'
         markdown file for changes and rerenders the presentation to HTML
         whenever the slides are modified."""
-    watch = subs.add_parser("watch", help=watch_help, description=watch_help)
-    watch.add_argument('-i', '--markdown', help='''The markdown source file.
+    p_watch = subs.add_parser("watch", help=watch_help, description=watch_help)
+    p_watch.add_argument('-i', '--markdown', help='''The markdown source file.
         Default="slides.md"''', default='slides.md')
-    watch.add_argument('-o', '--output', help='''The outut HTML file.
+    p_watch.add_argument('-o', '--output', help='''The outut HTML file.
         Default="index.html"''', default='index.html')
-    watch.add_argument('-t', '--template', help='''The template filename
+    p_watch.add_argument('-t', '--template', help='''The template filename
         Default="base.html"''', default='base.html')
 
     if len(sys.argv) == 1:
