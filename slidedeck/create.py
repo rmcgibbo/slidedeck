@@ -15,7 +15,7 @@ def check_env():
     '''
         Check the current user's environment to return important settings
     '''
-    sd_template = os.environment.get(TEMPLATE_VARIABLE, None) or curdir('data')
+    sd_template = os.environ.get(TEMPLATE_VARIABLE, None) or curdir('data')
     return {'template_dir': sd_template}
 
 

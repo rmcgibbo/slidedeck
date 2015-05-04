@@ -32,7 +32,7 @@ def main():
     p_create.add_argument('path', help='''Name of the slideshow
         to create. This will create a new directory at this path, and
         populate it with the necessary files for a skeleton slideshow.''')
-    parser_create.add_argument('-t', '--template', help="The name of a template \
+    p_create.add_argument('-t', '--template', help="The name of a template \
         directory to use in new project")
 
     render_help = """Render a slideshow by translating the the markdown
