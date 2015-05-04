@@ -34,10 +34,10 @@ Topic :: Internet :: WWW/HTTP
 
 setup(
     name='slidedeck',
-    version='0.11',
-    author='Robert McGibbon',
-    author_email='rmcgibbo@gmail.com',
-    url='https://github.com/rmcgibbo/slidedeck',
+    version='0.11.a',
+    author='Tim van Boxtel',
+    author_email='tim.vanboxtel@gmail.com',
+    url='https://github.com/SunPowered/slidedeck',
     description=DOCLINES[0],
     long_description="\n".join(DOCLINES[2:]),
     classifiers = CLASSIFIERS.splitlines(),
