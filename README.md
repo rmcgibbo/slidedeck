@@ -67,6 +67,16 @@ Tricks
 chrome, which will refresh your browser every time the html files its serving
 are changed on disk.
 
+Examples
+========
+
+Below are some examples of slides using this deck.  
+
+https://rawgit.com/kyleabeauchamp/BPS2015/master/index.html
+
+https://rawgit.com/kyleabeauchamp/DefenseSlides/master/index.html
+
+http://rawgit.com/kyleabeauchamp/MSMBuilderTalk/master/index.html
 
 License
 -------
