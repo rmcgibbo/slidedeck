@@ -65,7 +65,36 @@ Tricks
 
 `slidedeck watch` works nicely with the [tincr](http://tin.cr/) extension for
 chrome, which will refresh your browser every time the html files its serving
-are changed on disk.
+are changed on disk.  
+
+### Adding molecules with JSmol
+If you have internet access, you can add a molecule to your slides by using 
+```html
+<script type="text/javascript" src="http://chemapps.stolaf.edu/jmol/jmol.php?pdbid=1A9U&inline&script=cartoon only"></script>
+```
+more options are explained [here](http://chemapps.stolaf.edu/jmol/jmol.php).
+
+For an offline version, you need a local copy of JSmol.min.js, and j2s (see the [JSmol wiki](http://wiki.jmol.org/index.php/Jmol_JavaScript_Object#Installation)). 
+
+Then add the following to the header of base.html
+```html
+<script type="text/javascript" src="JSmol.min.js"></script>
+<script type="text/javascript">
+    var Info = {
+        height: 500,
+        width: 500,
+        use: "HTML5"
+    };
+</script>
+```
+And insert
+```html
+<script type="text/javascript">
+  jmolApplet0 = Jmol.getApplet("jmolApplet0", Info);
+  Jmol.script(jmolApplet0,"background white; load 1A9U.pdb; cartoon only;")
+</script>
+```
+in the slide where you want the molecule to appear.
 
 Examples
 ========
