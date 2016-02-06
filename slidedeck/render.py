@@ -76,6 +76,10 @@ def process_slides(markdown_fn, output_fn, template_fn):
         raise OSError('The markdown file "%s" could not be found.' % markdown_fn)
     md = codecs.open(markdown_fn, encoding='utf8').read()
 
+    # Check for Dos\Windows line encoding \r\n and convert to unix style \n
+    if '\r\n' in md:
+        md = md.replace('\r\n', '\n')
+
     slides = render_slides(md, template_fn)
     write_slides(slides, output_fn)
 
