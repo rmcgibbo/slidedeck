@@ -25,7 +25,7 @@ def main():
         version = 'slidedeck %s' % __version__)
 
     subs = p.add_subparsers(title='command', dest='action')
-    create_help='''Render a slideshow by translating the the markdown source
+    create_help='''Render a slideshow by translating the markdown source
         into HTML5.'''
     p_create = subs.add_parser("create", help=create_help,
         description=create_help)
@@ -35,7 +35,7 @@ def main():
     p_create.add_argument('-t', '--template', help="The name of a template \
         directory to use in new project")
 
-    render_help = """Render a slideshow by translating the the markdown
+    render_help = """Render a slideshow by translating the markdown
         source into HTML5."""
     p_render = subs.add_parser("render", help=render_help, description=render_help)
     p_render.add_argument('-i', '--markdown', help='''The markdown source file.
